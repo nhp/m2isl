@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>revaal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+<section data-markdown>
+## Current state of import in Magento
+Differences between Magento 1 & 2 and options to workaround
+</section>
+<section data-markdown>
+## Nils Preuß
+- Magento since 2009
+- Technical lead ecommerce
+- Polo Motorrad & Sportswear GmbH
+- Twitter: [@tutnix](https://twitter.tutnix)
+- Github: [https://github.com/nhp](https://github.com/nhp)
+</section>
+<section data-markdown>
+## Magento 1
+- CE 1.5
+- model-api
+- import/export
+- soap/rest-api
+</section>
+<section data-markdown>
+## model-api
+- slow
+- slow
+- calls save()
+- events dispatched
+</section>
+<section data-markdown>
+##import/export
+- csv based
+- one value per ROW
+- not erverything importable
+- only from admin-backend
+</section>
+<section data-markdown>
+## soap/rest api
+- even slower
+- uses model-api internally
+</section>
+<section data-markdown="">
+##Alternatives
+- Magmi
+- wrappers around import/export
+
+https://github.com/avstudnitz/AvS_FastSimpleImport
+
+https://github.com/ho-nl/Ho_Import
+
+many more
+</section>
+<section data-markdown>
+## Magento 2
+- model-api
+- SOAP/REST-api
+- import/export
+</section>
+<section data-markdown="">
+## Model/SOAP/REST-Api
+- still way to slow because of how it works
+</section>
+<section data-markdown>
+## import/export
+- csv
+- many improvements
+- 81 fixed columns
+- still not fully working
+- not automatable by default
+</section>
+<section data-markdown="">
+## General improvements
+- External images
+- Bundled products
+- Custom options
+- Image attributes
+- custom options
+</section>
+<section data-markdown="">
+## csv-format improvements
+- one line per sku
+- UTF-8 support
+- multiple values per attribute per field delimited by |
+- multiple attributes per field, delimited by ,
+</section>
+<section data-markdown="">
+## Custom attributes
+ ```php
+... ,additional_attributes, ...
+... ,"taste=salty,package=2pcs|4pcs", ...```
+
+</section>
+<section data-markdown="">
+## bundled products
+```
+	bundle_price_type
+	bundle_price_view
+	bundle_sku_type
+	bundle_weight_type
+	bundle_values
+	- type
+	- name
+	- sku
+	- required
+	- price
+	- price-type
+	- default-qty```
+	</section>
+				<section data-markdown="">
+					## Example
+```php
+	"name=Fork Spring,type=radio,required=1,sku=7091209,
+	price=0.0000,default=1,default_ qty=1.0000, price_type=fixed|
+	name=Fork Spring,type=radio,required=1,sku=7091208,
+	price=0.0000,default=0,default_ qty=1.0000, price_type=fixed"```
+</section>
+<section data-markdown="">
+## Custom Options
+```php
+custom_options
+"name=Opt1,type=drop_down,sku=1,required=0,price=3.5000,
+ option_title=foo|name=Opt2,type=drop_down,sku=2,
+ required=1,price=0.03,option_title=bar"```
+</section>
+<section data-markdown="">
+## pitfalls
+- no errors if linked SKU is non-existent
+- removing links/associations does not work (still an issue with saving empty fields)
+
+</section>
+<section data-markdown>
+## still missing stuff
+- downloadables
+- videos
+- empty attributes
+- no attribute/attribute option creation
+</section>
+<section data-markdown>
+## options for improving the situation
+- automate the csv import https://github.com/firebearstudio/importexport
+- omit csv by using a wrapper to be able to use pure data-array
+- fixing problems by enabling import of stuff so export>import yields correct data
+- extend the current import to add new options of what to import
+</section>
+</section>
+<section data-markdown>
+## FastSimpleImport 2
+- replace csv files with data arrays
+- demo module as tutorial how the array should look like
+- improve functionality in FastSimpleExtender
+https://github.com/firegento/FireGento_FastSimpleImport2
+</section>
+<section data-markdown>
+## fast simple extender
+- seperate format from functionality
+- new functionality will be added here
+- very early stage
+https://github.com/firegento/FireGento_ExtendedImport2
+</section>
+<section data-markdown>
+## Resource
+https://github.com/firebearstudio/importexport
+https://github.com/firegento/FireGento_FastSimpleImport2
+https://github.com/firegento/FireGento_ExtendedImport2
+</section>
+<section data-markdown>
+## Answers
+</section>
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
