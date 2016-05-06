@@ -80,7 +80,7 @@ Differences between Magento 1 & 2 and options to workaround
 </section>
 <section data-markdown="">
 ##Alternatives
-- Magmi
+- MySQL-Data-Pumps (e.g. Magmi)
 - wrappers around import/export
 
 https://github.com/avstudnitz/AvS_FastSimpleImport
@@ -97,7 +97,8 @@ many more
 </section>
 <section data-markdown="">
 ## Model/SOAP/REST-Api
-- still way to slow because of how it works
+- way faster
+- still slower than M1 import/export
 </section>
 <section data-markdown>
 ## import/export
@@ -111,9 +112,9 @@ many more
 ## General improvements
 - External images
 - Bundled products
-- Custom options
+- Custom Attributes
 - Image attributes
-- custom options
+- Custom options
 </section>
 <section data-markdown="">
 ## csv-format improvements
@@ -148,10 +149,11 @@ many more
 				<section data-markdown="">
 					## Example
 ```php
-	"name=Fork Spring,type=radio,required=1,sku=7091209,
+   ,bundle_values,
+   ,"name=Fork Spring,type=radio,required=1,sku=7091209,
 	price=0.0000,default=1,default_ qty=1.0000, price_type=fixed|
 	name=Fork Spring,type=radio,required=1,sku=7091208,
-	price=0.0000,default=0,default_ qty=1.0000, price_type=fixed"```
+	price=0.0000,default=0,default_ qty=1.0000, price_type=fixed",```
 </section>
 <section data-markdown="">
 ## Custom Options
@@ -165,7 +167,7 @@ custom_options
 ## pitfalls
 - no errors if linked SKU is non-existent
 - removing links/associations does not work (still an issue with saving empty fields)
-
+- slower than M1 Import/export
 </section>
 <section data-markdown>
 ## still missing stuff
@@ -177,9 +179,10 @@ custom_options
 <section data-markdown>
 ## options for improving the situation
 - automate the csv import https://github.com/firebearstudio/importexport
-- omit csv by using a wrapper to be able to use pure data-array
+- make it easier to bypass pure csv (add some format detection/selection)
 - fixing problems by enabling import of stuff so export>import yields correct data
-- extend the current import to add new options of what to import
+- extend the current import to add new options of what to import (entities)
+- allow import of attributes/options (step on its own)
 </section>
 </section>
 <section data-markdown>
