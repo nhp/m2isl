@@ -40,9 +40,7 @@
 
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-<section data-markdown>
-## Current state of import in Magento
-Differences between Magento 1 & 2 and options to workaround
+<section data-background="nils.png" data-background-size="80%" data-background-color="#000">
 </section>
 <section data-markdown>
 ## Nils Preuß
@@ -52,161 +50,276 @@ Differences between Magento 1 & 2 and options to workaround
 - Twitter: [@tutnix](https://twitter.tutnix)
 - Github: [https://github.com/nhp](https://github.com/nhp)
 </section>
-<section data-markdown>
-## Magento 1
-- CE 1.5
-- model-api
-- import/export
-- soap/rest-api
+				<section>
+					<section data-markdown>
+						## Magento 1
+					</section>
+				<section data-markdown="">
+					##Model-API
+					</section>
+					<section data-markdown>
+					##Slow
+					</section>
+					<section data-markdown>
+					##Really slow
+					</section>
+					<section data-markdown>
+					##Calls save()
+					</section>
+					<section data-markdown>
+					##Events get dispatched
+						</section>
+				</section>
+				<section>
+					<section data-markdown>
+						##SOAP/REST api
+					</section>
+					<section data-markdown>
+						##Even slower
+					</section>
+					<section data-markdown>
+						##Uses model-api internally
+					</section>
+				</section>
+				<section>
+					<section data-markdown>
+						##Import/Export
+					</section>
+					<section data-markdown>
+						##CSV based
+					</section>
+					<section data-markdown>
+						##One value per row
+					</section>
+					<section data-markdown>
+						##Not everything importable
+					</section>
+					<section data-markdown>
+						##Only usable from admin area
+					</section>
+                </section>
 </section>
-<section data-markdown>
-## model-api
-- slow
-- slow
-- calls save()
-- events dispatched
-</section>
-<section data-markdown>
-##import/export
-- csv based
-- one value per ROW
-- not erverything importable
-- only from admin-backend
-</section>
-<section data-markdown>
-## soap/rest api
-- even slower
-- uses model-api internally
-</section>
+				<section>
 <section data-markdown="">
 ##Alternatives
-- MySQL-Data-Pumps (e.g. Magmi)
-- wrappers around import/export
+</section>
+				<section data-markdown>
+##MySQL-Data-Pumps (e.g. Magmi)
+</section>
+				<section data-markdown>
+##Wrappers around import/export
 
 https://github.com/avstudnitz/AvS_FastSimpleImport
-
-https://github.com/ho-nl/Ho_Import
-
-many more
+					https://github.com/ho-nl/Ho_Import
+				</section>
+				<section data-markdown>
+##Many more
 </section>
+					</section>
+				<section>
 <section data-markdown>
 ## Magento 2
-- model-api
-- SOAP/REST-api
-- import/export
-</section>
-<section data-markdown="">
-## Model/SOAP/REST-Api
-- way faster
-- still slower than M1 import/export
-</section>
-<section data-markdown>
-## import/export
-- csv
-- many improvements
-- 81 fixed columns
-- still not fully working
-- not automatable by default
-</section>
-<section data-markdown="">
-## General improvements
-- External images
-- Bundled products
-- Custom Attributes
-- Image attributes
-- Custom options
-</section>
-<section data-markdown="">
-## csv-format improvements
-- one line per sku
-- UTF-8 support
-- multiple values per attribute per field delimited by |
-- multiple attributes per field, delimited by ,
-</section>
-<section data-markdown="">
-## Custom attributes
- ```php
-... ,additional_attributes, ...
-... ,"taste=salty,package=2pcs|4pcs", ...```
 
 </section>
+				<section data-markdown>
+##Model-Api
+				</section>
+				<section data-markdown>
+##SOAP/REST-Api
+				</section>
+				<section data-markdown>
+##Import/Export
+				</section>
+					</section>
+					<section>
 <section data-markdown="">
-## bundled products
-```
-	bundle_price_type
-	bundle_price_view
-	bundle_sku_type
-	bundle_weight_type
-	bundle_values
-	- type
-	- name
-	- sku
-	- required
-	- price
-	- price-type
-	- default-qty```
+## Model/SOAP/REST-Api
+</section>
+				<section data-markdown>
+##Way faster
+				</section>
+				<section data-markdown>
+##Still slower than M1 import/export
+				</section>
+<section data-markdown>
+## Import/Export
+</section>
+				<section data-markdown>
+##Still CSV only
+				</section>
+				<section data-markdown>
+##Many improvements
+				</section>
+				<section data-markdown>
+##81 fixed columns
+				</section>
+				<section data-markdown>
+##Still not fully working
+				</section>
+				<section data-markdown>
+##Not automatable by default
+</section>
+						</section>
+<section>
+
+	<section data-markdown="">
+		## General improvements
 	</section>
-				<section data-markdown="">
-					## Example
-```php
-   ,bundle_values,
-   ,"name=Fork Spring,type=radio,required=1,sku=7091209,
-	price=0.0000,default=1,default_ qty=1.0000, price_type=fixed|
-	name=Fork Spring,type=radio,required=1,sku=7091208,
-	price=0.0000,default=0,default_ qty=1.0000, price_type=fixed",```
+	<section data-markdown>
+		##External images
+	</section>
+	<section data-markdown>
+		##Bundled products
+	</section>
+	<section data-markdown>
+		##Custom Attributes
+	</section>
+	<section data-markdown>
+		##Image attributes
+	</section>
+	<section data-markdown>
+		##Custom options
+	</section>
 </section>
+				<section>
 <section data-markdown="">
-## Custom Options
-```php
-custom_options
-"name=Opt1,type=drop_down,sku=1,required=0,price=3.5000,
- option_title=foo|name=Opt2,type=drop_down,sku=2,
- required=1,price=0.03,option_title=bar"```
+## CSV-format improvements
 </section>
+					<section data-markdown>
+##One line per SKU
+</section>
+				<section data-markdown>
+##UTF-8 support
+				</section>
+				<section data-markdown>
+##Multiple values per attribute per field delimited by |
+				</section>
+				<section data-markdown>
+##Multiple attributes per field, delimited by ,
+</section>
+					</section>
+<section>
+	<section data-markdown="">
+		##IMPROVEMENTS
+	</section>
+	<section data-markdown>
+		## Custom attributes
+		```php
+		... ,additional_attributes, ...
+		... ,"taste=salty,package=2pcs|4pcs", ...```
+
+	</section>
+	<section data-markdown>
+		##One column per attribute
+	</section>
+	<section data-markdown="">
+		##Bundled products
+		```
+		bundle_price_type
+		bundle_price_view
+		bundle_sku_type
+		bundle_weight_type
+		bundle_values
+		- type
+		- name
+		- sku
+		- required
+		- price
+		- price-type
+		- default-qty```
+	</section>
+	<section data-markdown="">
+		## Example
+		```php
+		,bundle_values,
+		,"name=Fork Spring,type=radio,required=1,sku=7091209,
+		price=0.0000,default=1,default_ qty=1.0000, price_type=fixed|
+		name=Fork Spring,type=radio,required=1,sku=7091208,
+		price=0.0000,default=0,default_ qty=1.0000, price_type=fixed",```
+	</section>
+	<section data-markdown="">
+		## Custom Options
+		```php
+		custom_options
+		"name=Opt1,type=drop_down,sku=1,required=0,price=3.5000,
+		option_title=foo|name=Opt2,type=drop_down,sku=2,
+		required=1,price=0.03,option_title=bar"```
+	</section>
+
+</section>
+				<section>
 <section data-markdown="">
-## pitfalls
-- no errors if linked SKU is non-existent
-- removing links/associations does not work (still an issue with saving empty fields)
-- slower than M1 Import/export
+##PITFALLS
 </section>
+				<section data-markdown>
+##No errors if linked SKU is non-existent
+				</section>
+				<section data-markdown>
+##Removing links/associations does not work
+still an issue with saving empty fields
+				</section>
+				<section data-markdown>
+##Slower than M1 Import/export
+</section>
+					</section>
+					<section>
+						<section data-markdown>
+							##Still missing stuff
+						</section>
+						<section data-markdown>
+							##Downloadables
+						</section>
+						<section data-markdown>
+							##Videos
+						</section>
+						<section data-markdown>
+							##Remove/Empty attributes
+						</section>
+						<section data-markdown>
+							##No attribute/attribute option creation
+						</section>
+
+					</section>
+				<section>
+
 <section data-markdown>
-## still missing stuff
-- downloadables
-- videos
-- empty attributes
-- no attribute/attribute option creation
+##Options for improving the situation
 </section>
-<section data-markdown>
-## options for improving the situation
-- automate the csv import https://github.com/firebearstudio/importexport
-- make it easier to bypass pure csv (add some format detection/selection)
-- fixing problems by enabling import of stuff so export>import yields correct data
-- extend the current import to add new options of what to import (entities)
-- allow import of attributes/options (step on its own)
+				<section data-markdown>
+##Automate the CSV import
+https://github.com/firebearstudio/importexport
+				</section>
+				<section data-markdown>
+##Make it easier to bypass pure csv
+add some format detection/selection
+				</section>
+				<section data-markdown>
+##Fixing problems so export>import yields correct data
+				</section>
+				<section data-markdown>
+##Extend the current import to add new entities
+				</section>
+				<section data-markdown>
+##Allow import of attributes/option
+As a step on its own
 </section>
 </section>
-<section data-markdown>
-## FastSimpleImport 2
-- replace csv files with data arrays
-- demo module as tutorial how the array should look like
-- improve functionality in FastSimpleExtender
-https://github.com/firegento/FireGento_FastSimpleImport2
+				<section>
+<section data-markdown="">
+	##Workarounds in Magento2
 </section>
-<section data-markdown>
-## fast simple extender
-- seperate format from functionality
-- new functionality will be added here
-- very early stage
-https://github.com/firegento/FireGento_ExtendedImport2
-</section>
+					<section data-markdown>
+						## FastSimpleImport 2
+					</section>
+					<section data-markdown>
+						## Fast simple extender
+					</section>
+				</section>
 <section data-markdown>
 ## Resource
 https://github.com/firebearstudio/importexport
 https://github.com/firegento/FireGento_FastSimpleImport2
 https://github.com/firegento/FireGento_ExtendedImport2
-</section>
-<section data-markdown>
-## Answers
 </section>
 			</div>
 
